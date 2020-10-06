@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux'
 import { bindActionCreators, Dispatch } from 'redux';
-import { combineAction } from './redux/ modules/actions';
+import { combineAction } from './redux/modules/actions';
 
 const App = (props: any) => {
 
