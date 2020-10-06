@@ -1,19 +1,15 @@
-import { createAction } from '@reduxjs/toolkit'
+import { createAction } from '@reduxjs/toolkit';
 
-export const playAction = createAction("PLAY",  (payload: any) => {
-    return {
-      payload
-    }
-  });
+export const playAction = createAction('PLAY', (payload: any) => ({
+  payload,
+}));
 
-export const stopAction = createAction("STOP");
+export const stopAction = createAction('STOP');
 
-export const combineAction = createAction("COMBINE");
+export const combineAction = createAction('COMBINE');
 
-export const pingAction = createAction("PING",  (payload: any) => {
-    return {
-      payload
-    }
-  });
+export const pingAction = createAction('PING', (payload: any) => ({
+  payload,
+}));
 
-export const pongAction = createAction("PONG");
+export const pongAction = createAction('PONG');

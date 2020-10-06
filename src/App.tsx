@@ -1,20 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-import { combineAction } from './redux/modules/actions';
+import * as actionCreators from './redux/modules/actions';
+import logo from './logo.svg';
 
 const App = (props: any) => {
-
-  props.combineAction({ test: 1});
+  const { combineAction } = props;
+  combineAction({ test: 1 });
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Edit
+          {' '}
+          <code>src/App.tsx</code>
+          {' '}
+          and save to reload.
         </p>
         <a
           className="App-link"
@@ -27,10 +31,8 @@ const App = (props: any) => {
       </header>
     </div>
   );
-}
-
-const mapDispatchToProps = (dispatch: Dispatch) => { 
-  return bindActionCreators({ combineAction }, dispatch);
 };
+
+const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(actionCreators, dispatch);
 
 export default connect(null, mapDispatchToProps)(App);

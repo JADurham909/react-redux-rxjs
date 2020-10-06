@@ -6,9 +6,9 @@ import pingPong from './reducers';
 export const rootEpic = combineEpics(
   play,
   stop,
-  combine
+  combine,
 );
 
 export const rootReducer = combineReducers({
-  pingPong
+  pingPong,
 });
