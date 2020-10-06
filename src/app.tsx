@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './app.css';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import * as actionCreators from './redux/modules/actions';
