@@ -1,8 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { connect } from 'react-redux'
+import { bindActionCreators, Dispatch } from 'redux';
+import { combineAction } from './redux/ modules/actions';
 
-function App() {
+const App = (props: any) => {
+
+  props.combineAction({ test: 1});
+
   return (
     <div className="App">
       <header className="App-header">
@@ -23,4 +29,8 @@ function App() {
   );
 }
 
-export default App;
+const mapDispatchToProps = (dispatch: Dispatch) => { 
+  return bindActionCreators({ combineAction }, dispatch);
+};
+
+export default connect(null, mapDispatchToProps)(App);
