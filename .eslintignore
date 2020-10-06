@@ -1,4 +1,4 @@
 node_modules
 dist
 build
-src/serviceWorker.ts
+src/service-worker.ts
