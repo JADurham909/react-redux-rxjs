@@ -6,8 +6,12 @@ import * as actionCreators from './redux/modules/actions';
 import logo from './logo.svg';
 
 const App = (props: any) => {
-  const { combineAction } = props;
-  combineAction({ test: 1 });
+
+  const { authStartAction, playAction } = props;
+  // console.log('initial state', test);
+  // combineAction({ test: 1 });
+  authStartAction();
+  playAction({ test: 5 });
 
   return (
     <div className="App">
