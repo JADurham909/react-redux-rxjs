@@ -13,7 +13,7 @@ export const auth = (action$: ActionsObservable<any>) => action$.pipe(
 
 export const play = (action$: ActionsObservable<any>, state$: any) => {
 
-  const play$ = action$.pipe(ofType('PLAY'), mergeMap((a) => of(a)));
+  const play$ = action$.pipe(ofType('PLAY'));
 
   const auth$ = state$.pipe(
     map(authSelector),
