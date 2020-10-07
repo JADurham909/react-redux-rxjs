@@ -23,3 +23,11 @@ export const pingAction = createAction('PING', (payload: {test: number}) => ({
 export const pongAction = createAction('PONG', (payload: {test: number}) => ({
   payload,
 }));
+
+export const actionMapFirstAction = createAction('ACTION_MAP_FIRST', (payload: {actionMap: number}) => ({
+  payload,
+}));
+
+export const actionMapSecondAction = createAction('ACTION_MAP_SECOND', (payload: {actionMap: number}) => ({
+  payload,
+}));

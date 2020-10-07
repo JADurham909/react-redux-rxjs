@@ -1,3 +1,4 @@
-export const authSelector = (state: any): string => { console.log('auth-selector', state); return state.pingPong.token; };
-
-export const testSelector = (state: any): number => { console.log('test-selector', state); return state.pingPong.test; };
+export const authSelector = (state: any): string => state.pingPong.token;
+export const testSelector = (state: any): number => state.pingPong.test;
+export const actionMapFirstSelector = (state: any): number => state.pingPong.actionMapFirst;
+export const actionMapSecondSelector = (state: any): number => state.pingPong.actionMapSecond;

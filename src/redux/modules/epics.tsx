@@ -6,9 +6,9 @@ import {
 } from 'rxjs';
 import { ActionsObservable, ofType } from 'redux-observable';
 import {
-  authFulfilledAction, pingAction, pongAction,
+  authFulfilledAction, pingAction, pongAction, actionMapSecondAction,
 } from './actions';
-import { authSelector } from './selectors';
+import { authSelector, actionMapFirstSelector } from './selectors';
 
 export const auth = (action$: ActionsObservable<any>) => action$.pipe(
   ofType('AUTH_START'),
@@ -46,4 +46,9 @@ export const combine = (action$: ActionsObservable<any>, state$: any) => action$
       ),
     ),
   ),
+);
+
+export const actionMap = (action$: ActionsObservable<any>, state$: any) => action$.pipe(
+  ofType('ACTION_MAP_FIRST'),
+  mergeMap(() => of(actionMapSecondAction({ actionMap: actionMapFirstSelector(state$.value) }))),
 );
