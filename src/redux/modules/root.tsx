@@ -1,6 +1,8 @@
 import { combineEpics } from 'redux-observable';
 import { combineReducers } from 'redux';
-import { auth, play, stop, combine } from './epics';
+import {
+  auth, play, stop, combine,
+} from './epics';
 import pingPong from './reducers';
 
 export const rootEpic = combineEpics(

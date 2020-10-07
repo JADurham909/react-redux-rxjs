@@ -6,13 +6,11 @@ import * as actionCreators from './redux/modules/actions';
 import logo from './logo.svg';
 
 const App = (props: any) => {
+  const { authStartAction, playAction, combineAction } = props;
 
-  const { authStartAction, playAction } = props;
-
-  // combineAction({ test: 1 });
+  combineAction({ test: 1 });
   authStartAction();
   playAction({ test: 5 });
-  authStartAction();
 
   return (
     <div className="App">
