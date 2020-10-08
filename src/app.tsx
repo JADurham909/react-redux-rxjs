@@ -11,8 +11,14 @@ const App = (props: any) => {
   } = props;
 
   combineAction({ test: 1 });
+
   authStartAction();
   playAction({ test: 5 });
+
+  authStartAction();
+  playAction({ test: 5 });
+  playAction({ test: 5 });
+
   actionMapFirstAction({ actionMap: 100 });
 
   return (

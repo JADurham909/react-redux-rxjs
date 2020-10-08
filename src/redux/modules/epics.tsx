@@ -12,7 +12,8 @@ import { authSelector, actionMapFirstSelector } from './selectors';
 
 export const auth = (action$: ActionsObservable<any>) => action$.pipe(
   ofType('AUTH_START'),
-  mergeMap((a) => of(a).pipe(delay(5000), map(() => authFulfilledAction({ token: 'X' })))),
+  mergeMap((a) => of(a).pipe(delay(5000),
+    map(() => authFulfilledAction({ token: Math.random().toString(36).substring(7) })))),
 );
 
 export const play = (action$: ActionsObservable<any>, state$: any) => {
@@ -36,18 +37,21 @@ export const stop = (action$: ActionsObservable<any>) => action$.pipe(
   mergeMap((action) => of(pongAction(action.payload))),
 );
 
-export const combine = (action$: ActionsObservable<any>, state$: any) => action$.pipe(
+// Reducer for COMBINE will run and be available in state$
+// But all actions dispatched here will not be reflected in $state
+// Cannot make decisions in pong based on state updates from ping
+export const combine = (action$: ActionsObservable<any>) => action$.pipe(
   ofType('COMBINE'),
   mergeMap(
     (action) => of(pingAction(action.payload)).pipe(
       concat(
-        of(() => console.log('TEST', state$.value)),
-        of(pongAction({ test: (state$.value) + 900 })),
+        of(pongAction({ test: 900 })),
       ),
     ),
   ),
 );
 
+// Reducer for ACTION_MAP_FIRST will run and be available in state$ for ACTION_MAP_SECOND
 export const actionMap = (action$: ActionsObservable<any>, state$: any) => action$.pipe(
   ofType('ACTION_MAP_FIRST'),
   mergeMap(() => of(actionMapSecondAction({ actionMap: actionMapFirstSelector(state$.value) }))),
